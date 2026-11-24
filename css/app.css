@@ -663,3 +663,5 @@ div.campo { display: grid; gap: 6px; }
 @media (max-width: 640px) { .barras { gap: 2px; } .barras .bv { font-size: 9px; } }
 @media (max-width: 640px) { .tabbar a { position: relative; } .tabbar a em { position: absolute; top: 2px; left: calc(50% + 6px); font-style: normal; font-size: 10px; font-weight: 700; background: var(--brand); color: #fff; border-radius: 99px; padding: 0 5px; line-height: 16px; } }
 @media (max-width: 640px) { .barra-f .chips { flex-basis: 100%; } .barra-f [data-csv] { width: 100%; } }
+
+.tabla th.r, .tabla td.r { text-align: right; }
