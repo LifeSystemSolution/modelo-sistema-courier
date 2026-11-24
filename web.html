@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="es-PE" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-7KMKZ8F317"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-7KMKZ8F317");</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LifeCargo Express · Envíos y encomiendas a todo el Perú</title>
+  <meta name="description" content="Web de ejemplo de un courier ficticio: rastreo de envíos, cotizador, agencias y envíos contra entrega. Hecha por LifeSystem Solutions.">
+  <meta name="theme-color" content="#e30613">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e30613'/%3E%3Cpath d='M8 9.5v12.5h7' stroke='%23fff' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Cpath d='M24.5 11.5a6 6 0 1 0 0 9' stroke='%23fff' stroke-width='2.8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=4">
+  <link rel="stylesheet" href="css/app.css?v=4">
+  <link rel="stylesheet" href="css/web.css?v=4">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('lifecargo-tema')||'light'}catch(e){}</script>
+</head>
+<body class="web">
+  <p class="w-demo">Web de ejemplo hecha por LifeSystem Solutions · empresa y datos ficticios · <a href="index.html#planes">Ver planes del sistema</a></p>
+  <header class="w-top">
+    <div class="w-wrap w-top-in">
+      <a class="marca" href="web.html" id="w-logo" aria-label="LifeCargo Express, inicio"></a>
+      <nav class="w-nav" aria-label="Secciones">
+        <a href="#rastrear">Rastrear</a>
+        <a href="#cotizar">Cotizar</a>
+        <a href="#agencias">Agencias</a>
+        <a href="#tiendas">Para tiendas</a>
+      </nav>
+      <button type="button" class="btn btn-ghost btn-icon btn-sm" id="btn-tema" aria-label="Cambiar tema"></button>
+      <a class="w-ingresar" href="app.html" title="Acceso para el personal de LifeCargo"><span class="w-lock" id="w-lock"></span><span>Ingresar<span class="hide-s"> al sistema</span></span></a>
+    </div>
+  </header>
+
+  <main>
+    <section class="w-hero" id="rastrear">
+      <div class="w-wrap">
+        <h1>Tu encomienda llega. Y la sigues desde que sale.</h1>
+        <p class="w-lead">Envíos y encomiendas entre Lima, Piura, Trujillo, Huancayo, Cusco y Arequipa. Con código para rastrear, recojo en agencia o entrega en tu puerta.</p>
+        <form class="w-track" id="f-track">
+          <label class="sr-only" for="cod">Código de tu envío</label>
+          <input id="cod" name="cod" placeholder="Código de tu envío, ej.: LC-105240" autocomplete="off" inputmode="text">
+          <button class="btn btn-primary btn-lg">Rastrear</button>
+        </form>
+        <p class="w-ej" id="w-ej"></p>
+        <div id="track-res" aria-live="polite"></div>
+        <div class="w-ruta" id="w-ruta" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="w-sec" id="cotizar">
+      <div class="w-wrap w-cot">
+        <div>
+          <h2>Cotiza en segundos</h2>
+          <p class="w-sub">El precio se calcula por el peso real o por el tamaño de la caja, lo que sea mayor, y por la distancia. Sin sorpresas en counter.</p>
+          <form class="w-cot-f" id="f-cot"></form>
+        </div>
+        <div class="w-cot-res caja" id="cot-res" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="w-sec w-serv">
+      <div class="w-wrap">
+        <h2>Cómo enviar con nosotros</h2>
+        <ol class="w-pasos">
+          <li><b>Llévalo a la agencia</b><span>Con tu DNI o RUC y el DNI y celular de quien recibe. Si no tienes caja, te la vendemos ahí.</span></li>
+          <li><b>Paga y guarda tu código</b><span>Efectivo, Yape, Plin o tarjeta. Te damos boleta y el código para rastrear.</span></li>
+          <li><b>Lo recibe con su DNI</b><span>En la agencia de destino o en su casa. Le avisamos por WhatsApp cuando llega y cuando sale a reparto.</span></li>
+        </ol>
+        <div class="w-servs">
+          <div><h3>Estándar</h3><p>De 1 a 4 días hábiles según el destino. La opción para la mayoría de envíos.</p></div>
+          <div><h3>Express</h3><p>Un día hábil menos que el estándar, con prioridad en el camión y en reparto.</p></div>
+          <div><h3>Sobres y documentos</h3><p>Tarifa plana para documentos de hasta 500 g, en Lima y a provincias.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-sec" id="tiendas">
+      <div class="w-wrap w-tienda">
+        <div>
+          <h2>¿Vendes por internet? Cobramos por ti al entregar.</h2>
+          <p class="w-sub">Envías el pedido, tu cliente paga en efectivo, Yape o Plin cuando lo recibe y te liquidamos cada viernes con el detalle de cada envío. Comisión de 3% del monto cobrado.</p>
+          <a class="btn btn-dark btn-lg" id="wa-tienda" target="_blank" rel="noopener" href="#">Quiero enviar como tienda</a>
+        </div>
+        <div class="w-tienda-ill" id="w-tienda-ill" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="w-sec" id="agencias">
+      <div class="w-wrap">
+        <h2>Nuestras agencias</h2>
+        <p class="w-sub" id="w-horario"></p>
+        <div class="w-ags" id="w-ags"></div>
+      </div>
+    </section>
+
+    <section class="w-sec w-faq">
+      <div class="w-wrap w-dos">
+        <h2>Preguntas frecuentes</h2>
+        <div>
+          <details><summary>¿Qué no puedo enviar?</summary><p>Dinero en efectivo, joyas sin declarar, armas, explosivos, productos inflamables, animales vivos y medicamentos controlados.</p></details>
+          <details><summary>¿Qué pasa si no hay nadie en casa?</summary><p>El repartidor registra el intento y lo vuelve a programar para el siguiente día hábil. Al segundo intento fallido, el envío queda listo para recoger en la agencia.</p></details>
+          <details><summary>¿Cuánto tiempo guardan mi envío en agencia?</summary><p>Hasta 15 días calendario. Desde el día 6 te llamamos para recordarte.</p></details>
+          <details><summary>¿Puede recoger otra persona?</summary><p>Sí, con su DNI y una carta poder simple firmada por el destinatario.</p></details>
+          <details><summary>¿Mi envío está asegurado?</summary><p>Si declaras su valor, el seguro cuesta 1% de ese valor (mínimo S/ 2) y cubre pérdida o daño.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="w-sec w-contacto">
+      <div class="w-wrap">
+        <h2>¿Tienes una duda con tu envío?</h2>
+        <p>Escríbenos con tu código y te respondemos en el día.</p>
+        <a class="btn btn-primary btn-lg" id="wa-contacto" target="_blank" rel="noopener" href="#">Escribir por WhatsApp</a>
+        <p class="w-nota">En esta web de ejemplo, el botón de WhatsApp escribe a LifeSystem Solutions.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="w-pie">
+    <div class="w-wrap w-pie-in">
+      <span id="w-razon"></span>
+      <a href="#rastrear">Rastrear</a>
+      <a href="#cotizar">Cotizar</a>
+      <a href="app.html">Ingresar al sistema</a>
+    </div>
+  </footer>
+
+  <script src="js/icons.js?v=4"></script>
+  <script src="js/motor.js?v=4"></script>
+  <script src="js/planes.js?v=4"></script>
+  <script src="js/seed.js?v=4"></script>
+  <script src="js/store.js?v=4"></script>
+  <script src="js/ui.js?v=4"></script>
+  <script src="js/clientes.js?v=4"></script>
+  <script src="js/web.js?v=4"></script>
+</body>
+</html>

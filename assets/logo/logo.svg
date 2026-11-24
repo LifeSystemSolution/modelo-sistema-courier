@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200" role="img" aria-label="Logo LifeCargo Express">
-  <rect width="600" height="200" rx="36" fill="#0f172a"/>
-  <circle cx="100" cy="100" r="60" fill="#f97316"/>
-  <path d="M70 108h60l-18 20m18-36H70l18-20" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
-  <text x="185" y="112" font-family="Arial, sans-serif" font-size="64" font-weight="700" fill="#fff">LifeCargo</text>
-  <text x="188" y="152" font-family="Arial, sans-serif" font-size="26" font-weight="700" letter-spacing="9" fill="#f97316">EXPRESS</text>
-</svg>

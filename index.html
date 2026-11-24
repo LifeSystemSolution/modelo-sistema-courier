@@ -1,77 +1,150 @@
-<!DOCTYPE html>
-<html lang="es">
-<head><!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-7KMKZ8F317"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-7KMKZ8F317");</script>
-<meta charset="UTF-8">
-<title>LifeCargo Express S.A.C. | Sistema de Gestión de Envíos</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-<link rel="stylesheet" href="css/style.css">
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<!doctype html>
+<html lang="es-PE" data-theme="light">
+<head>
+  <!-- Google tag (gtag.js) --><script async src="https://www.googletagmanager.com/gtag/js?id=G-7KMKZ8F317"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag("js",new Date());gtag("config","G-7KMKZ8F317");</script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>LifeCargo · Sistema para courier y encomiendas</title>
+  <meta name="description" content="Sistema para empresas de courier en Perú: recepción en counter, despacho, reparto, cobro contra entrega y un puntaje que avisa qué envío se va a retrasar. Demo de LifeSystem Solutions.">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23e30613'/%3E%3Cpath d='M8 9.5v12.5h7' stroke='%23fff' stroke-width='3' stroke-linecap='round' fill='none'/%3E%3Cpath d='M24.5 11.5a6 6 0 1 0 0 9' stroke='%23fff' stroke-width='2.8' stroke-linecap='round' fill='none'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/base.css?v=4">
+  <link rel="stylesheet" href="css/app.css?v=4">
+  <link rel="stylesheet" href="css/landing.css?v=4">
+  <script>try{document.documentElement.dataset.theme=localStorage.getItem('lifecargo-tema')||'light'}catch(e){}</script>
 </head>
-
-<body class="auth-page">
-
-<div class="auth-shell">
-  <div class="card auth-card p-4 text-center">
-    <img src="assets/logo/logo.png" onerror="this.onerror=function(){this.onerror=null;this.src='assets/logo/placeholder.svg';};this.src='assets/logo/logo.svg';" class="login-logo mx-auto mb-3" alt="Logo LifeCargo Express S.A.C.">
-
-    <div class="login-brand mb-4">
-      <h1>LifeCargo Express S.A.C.</h1>
-      <p>RUC: 20000000000</p>
-      <span>Sistema de Gestión de Envíos</span>
+<body class="landing">
+  <header class="l-top">
+    <div class="l-wrap l-top-in">
+      <a class="marca" href="index.html" id="l-logo" aria-label="LifeCargo, inicio"></a>
+      <nav class="l-nav" aria-label="Secciones">
+        <a href="#como">Cómo funciona</a>
+        <a href="#planes">Planes</a>
+        <a href="#calculadora">Ahorro</a>
+        <a href="web.html">Web de ejemplo</a>
+      </nav>
+      <button type="button" class="btn btn-ghost btn-icon btn-sm" id="btn-tema" aria-label="Cambiar tema"></button>
+      <a class="btn btn-dark btn-sm" href="#probar">Probar el demo</a>
     </div>
+  </header>
 
-    <div id="loginBox">
-      <h4 class="mb-3">Iniciar sesión</h4>
-      <input id="loginEmail" class="form-control mb-2" placeholder="Correo electrónico">
-      <input id="loginPassword" type="password" class="form-control mb-3" placeholder="Contraseña">
-      <button onclick="login()" class="btn btn-primary w-100">Iniciar sesión</button>
-      <button id="crearSuperAdminBtn" onclick="mostrarFormularioSuperAdmin()" class="btn btn-outline-dark w-100 mt-2 d-none">⚙ Crear Super Administrador</button>
-
-    </div>
-
-    <div id="superAdminBox" class="surface text-start mt-3 d-none">
-      <h5 class="mb-3 text-center">Crear Super Administrador</h5>
-      <div class="row g-2">
-        <div class="col-md-12"><input id="saNombres" class="form-control" placeholder="Nombres *"></div>
-        <div class="col-md-6"><input id="saApellidoPaterno" class="form-control" placeholder="Apellido paterno *"></div>
-        <div class="col-md-6"><input id="saApellidoMaterno" class="form-control" placeholder="Apellido materno *"></div>
-        <div class="col-md-6"><input id="saDni" class="form-control" inputmode="numeric" maxlength="8" placeholder="DNI *"></div>
-        <div class="col-md-6"><input id="saTelefono" class="form-control" inputmode="numeric" maxlength="9" placeholder="Teléfono *"></div>
-        <div class="col-md-12"><input id="saCorreo" type="email" class="form-control" placeholder="Correo electrónico *"></div>
-        <div class="col-md-6"><input id="saPassword" type="password" class="form-control" placeholder="Contraseña *"></div>
-        <div class="col-md-6"><input id="saConfirmar" type="password" class="form-control" placeholder="Confirmar contraseña *"></div>
-        <div class="col-md-6"><input id="saEmpresa" class="form-control" value="LifeCargo Express S.A.C." placeholder="Empresa *"></div>
-        <div class="col-md-6"><input id="saRuc" class="form-control" value="20000000000" placeholder="RUC *"></div>
-        <div class="col-12 d-grid"><button onclick="crearSuperAdmin()" class="btn btn-dark">Crear y entrar al sistema</button></div>
+  <main>
+    <section class="l-hero">
+      <div class="l-wrap l-hero-in">
+        <div class="l-hero-t">
+          <h1>Sepa qué envío se va a retrasar antes de que su cliente llame.</h1>
+          <p class="l-lead">LifeCargo es el sistema para empresas de courier y encomiendas en Perú. Recibe en counter, despacha camiones, reparte a domicilio y le da a cada envío un puntaje de riesgo de 0 a 100 que dice qué atender primero y por qué.</p>
+          <div class="fila">
+            <a class="btn btn-primary btn-lg" href="app.html?plan=completo&demo=jefe">Probar el sistema</a>
+            <a class="btn btn-line btn-lg" href="web.html">Ver la web para sus clientes</a>
+          </div>
+          <p class="l-nota">Demo con datos ficticios de una empresa inventada. No necesita registrarse.</p>
+        </div>
+        <div class="l-widget caja" id="widget" aria-label="Simulador del puntaje de riesgo"></div>
       </div>
-    </div>
+    </section>
 
-    <div class="alert alert-warning small text-start mb-0 mt-3">
-      <strong>Versión demo</strong> — datos ficticios guardados solo en tu navegador. Contraseña para todos: <code>demo123</code>
-      <div class="d-grid gap-1 mt-2">
-        <button type="button" class="btn btn-sm btn-outline-dark" onclick="demoLogin('admin@lifecargo.demo')">Entrar como Administrador</button>
-        <button type="button" class="btn btn-sm btn-outline-dark" onclick="demoLogin('operador@lifecargo.demo')">Entrar como Operador de almacén</button>
-        <button type="button" class="btn btn-sm btn-outline-dark" onclick="demoLogin('transportista@lifecargo.demo')">Entrar como Transportista</button>
-        <button type="button" class="btn btn-sm btn-link text-muted" onclick="resetDemo()">Reiniciar datos de la demo</button>
+    <section class="l-sec l-dolor">
+      <div class="l-wrap l-dos">
+        <h2>En un courier, el problema rara vez es el camión. Es no saber.</h2>
+        <ul class="l-dolores">
+          <li><b>El cliente llama tres veces</b> preguntando dónde está su paquete, y en counter tienen que buscar en el cuaderno o llamar a la otra agencia.</li>
+          <li><b>El retraso se descubre tarde:</b> cuando el destinatario reclama, el envío ya lleva dos días detenido en una agencia.</li>
+          <li><b>La caja no cuadra</b> con lo que se recibió, y los cobros contra entrega de las tiendas online se liquidan a ojo.</li>
+          <li><b>Nadie sabe cuánto deja cada ruta:</b> se cobra por costumbre, no por peso real, volumen ni distancia.</li>
+        </ul>
       </div>
+    </section>
+
+    <section class="l-sec" id="como">
+      <div class="l-wrap">
+        <h2 class="l-h2">Cómo funciona un día con LifeCargo</h2>
+        <p class="l-sub">Capturas reales del sistema de demostración.</p>
+        <div class="l-pasos">
+          <figure class="l-paso">
+            <img src="img/capturas/recepcion.png" alt="Pantalla de recepción en counter con la tarifa calculada al lado" loading="lazy" width="1440" height="900">
+            <figcaption><b>En counter, un envío en menos de un minuto.</b> DNI o RUC del remitente, destino y peso. La tarifa se calcula sola con peso real o volumen, distancia y servicio, y muestra de dónde sale cada sol. Sale la guía, la etiqueta con código de barras y la boleta.</figcaption>
+          </figure>
+          <figure class="l-paso">
+            <img src="img/capturas/tablero.png" alt="Tablero de la jefa de operaciones con los envíos en riesgo y las alertas de carretera" loading="lazy" width="1440" height="900">
+            <figcaption><b>La jefa de operaciones ve primero lo urgente.</b> Cada envío tiene su puntaje de riesgo con los motivos: plazo usado, etapa en la que debería ir, horas detenido, intentos fallidos y distancia. Los camiones con incidencia aparecen como alerta.</figcaption>
+          </figure>
+          <figure class="l-paso">
+            <img src="img/capturas/ruta.png" alt="Ruta del día del repartidor con las paradas y botones de entregado o no se pudo" loading="lazy" width="1440" height="900">
+            <figcaption><b>El repartidor trabaja desde su celular.</b> Ve sus paradas ordenadas por distrito, cobra contra entrega, verifica el DNI y marca "Entregado" o "No se pudo" con el motivo. El cliente recibe el aviso por WhatsApp.</figcaption>
+          </figure>
+          <figure class="l-paso">
+            <img src="img/capturas/reportes.png" alt="Reportes con envíos por día, ingresos por destino y ganancia estimada con su fórmula" loading="lazy" width="1440" height="900">
+            <figcaption><b>A fin de mes, números que se entienden.</b> Envíos e ingresos por día y destino, cumplimiento de plazos por ruta y una ganancia estimada con la fórmula a la vista. Todo se exporta a Excel.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="l-sec l-planes-sec" id="planes">
+      <div class="l-wrap">
+        <h2 class="l-h2">Tres planes, o arme el suyo</h2>
+        <p class="l-sub">Cada plan se puede probar completo ahora mismo. La cotización depende de sus agencias y usuarios, por eso la conversamos por WhatsApp.</p>
+        <div class="l-planes" id="planes-lista"></div>
+        <div class="l-arma caja" id="arma"></div>
+      </div>
+    </section>
+
+    <section class="l-sec" id="calculadora">
+      <div class="l-wrap l-dos">
+        <div>
+          <h2>¿Cuántas horas se van en contestar "dónde está mi envío"?</h2>
+          <p class="l-sub">Calculadora de estimación. Cambie los valores por los de su courier.</p>
+          <div class="l-calc" id="calc"></div>
+        </div>
+        <div class="l-calc-res caja" id="calc-res" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="l-sec l-probar" id="probar">
+      <div class="l-wrap">
+        <h2 class="l-h2">Pruébelo con el rol que le interesa</h2>
+        <div class="l-plan-sel" role="radiogroup" aria-label="Plan para probar" id="plan-sel"></div>
+        <div class="l-roles" id="roles"></div>
+        <p class="l-sub">Enlaces útiles para presentar: <a href="app.html?demo=counter&plan=completo#/recepcion?sim=1">registrar un envío de ejemplo</a> · <a href="app.html?demo=jefe&plan=completo#/envios?id=primero">abrir el envío más urgente</a> · <a href="web.html#rastrear">rastrear como cliente</a></p>
+      </div>
+    </section>
+
+    <section class="l-sec l-honesto">
+      <div class="l-wrap l-dos">
+        <h2>Qué es real y qué es simulado en este demo</h2>
+        <ul class="l-lista">
+          <li><b>Real:</b> el cálculo de tarifas, el puntaje de riesgo, el flujo de cada rol, la caja con arqueo, la impresión de guías y manifiestos, los reportes y la exportación a Excel.</li>
+          <li><b>Simulado:</b> el envío de boletas a SUNAT, la consulta de DNI en RENIEC y de RUC en SUNAT, los mensajes de WhatsApp, la firma del cliente en pantalla y las transferencias de liquidación.</li>
+          <li><b>Ficticio:</b> la empresa LifeCargo Express, sus agencias, clientes, DNI, RUC y teléfonos. Los datos viven solo en su navegador y se regeneran cada día.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="l-sec l-cierre">
+      <div class="l-wrap">
+        <h2>¿Quiere verlo con los datos de su courier?</h2>
+        <p>Le mostramos el sistema en una llamada de 15 minutos y lo adaptamos a sus agencias, tarifas y rutas.</p>
+        <a class="btn btn-primary btn-lg" id="wa-cierre" target="_blank" rel="noopener" href="#">Escribir por WhatsApp</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="l-pie">
+    <div class="l-wrap l-pie-in">
+      <span>LifeCargo es un demo de <b>LifeSystem Solutions</b>. Empresa y datos ficticios.</span>
+      <a href="web.html">Web de ejemplo</a>
+      <a href="app.html">Entrar al sistema</a>
     </div>
-    <script>
-      window.demoLogin = (email) => {
-        document.getElementById("loginEmail").value = email;
-        document.getElementById("loginPassword").value = "demo123";
-        window.login();
-      };
-    </script>
-  </div>
-</div>
+  </footer>
 
-<script type="module" src="js/logo.js"></script>
-<script type="module" src="js/auth.js"></script>
-
-
-
-<script type="module" src="js/accessibility.js"></script>
+  <script src="js/icons.js?v=4"></script>
+  <script src="js/motor.js?v=4"></script>
+  <script src="js/planes.js?v=4"></script>
+  <script src="js/ui.js?v=4"></script>
+  <script src="js/landing.js?v=4"></script>
 </body>
 </html>
